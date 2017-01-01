@@ -18,10 +18,8 @@ function timer(seconds) {
 
 function displayTimeLeft(seconds) {
   const minutes = Math.floor(seconds / 60);
-  let remainderSeconds = seconds % 60;
-  if (remainderSeconds < 10) {
-    remainderSeconds = `0${remainderSeconds}`
-  }
-  const display = `${minutes}:${remainderSeconds}`;
+  const remainderSeconds = seconds % 60;
+  // Use ternary to add 0 to seconds < 10
+  const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
   timerDisplay.textContent = display;
 }
